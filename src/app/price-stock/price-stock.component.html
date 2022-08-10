@@ -1,0 +1,6 @@
+<input type="text" #stockname>
+<button type="button" (click)="getPrice(stockname.value)">Clickme</button>
+
+<p>{{ price | currency }}</p>
+
+
