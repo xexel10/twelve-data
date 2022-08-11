@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Response } from '../interfaces/Response';
+import { Stocks } from '../interfaces/Stocks';
+
 
 @Injectable()
 export class StockListService {
@@ -9,7 +12,7 @@ export class StockListService {
   price: any;
   url: string = 'https://twelve-data1.p.rapidapi.com/stocks';
 
-  getStocks(): Observable<any> {
+  getStocks(): Observable<Response<Stocks[]>> {
     // API Call
     let headers = new HttpHeaders({
       'x-rapidapi-host': 'twelve-data1.p.rapidapi.com',
@@ -20,7 +23,7 @@ export class StockListService {
                                  .set('format', 'json');
 
     return this.http
-                .get<any>(this.url, {
+                .get<Response<Stocks[]>>(this.url, {
     headers: headers,
     params: params
     });
