@@ -19,7 +19,7 @@ export class StocksListComponent implements OnInit {
       this._stockListService.getStocks().subscribe(data => {
         console.log(data.data[0]);
         this.stockList =  data.data;
-        console.log('Status',data.status
+        console.log('Status',data.status);
 
       });
   }
